@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Fibonacci Sequence</title>
 </head>
+<script type="text/javascript">
+	function sequence()
+	{
+		input = document.getElementById("NumberBox").value;
+		lastint = parseInt(input);
+		ourSequence = [];
+		ourSequence.push(lastint);
+		if(typeof(lastint) === "number")
+		{
+			for(i = 0; i < 15; i++) // loop to push each sum to ourSequence
+			{
+				DupeInt = lastint;
+				newInt = lastint + DupeInt;
+				ourSequence.push(newInt);
+				lastint = newInt;
+			}
+			OurSequenceString = ourSequence.join(",");
+			document.getElementById("Replace").innerHTML = OurSequenceString;
+		}
+	}
+</script>
 <body>
-
+<input type="text" id="NumberBox" value="Type a number"></input>
+<button onclick="sequence()">Push</button>
+<p id="Replace"> To be replaced by a sequence of numbers</p>
 </body>
 </html>
